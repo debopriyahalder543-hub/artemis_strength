@@ -1,0 +1,27 @@
+#!/bin/bash
+# Auto-deploy hook for Artemis Strength.
+# Lives on the cPanel server at ~/artemis.git/hooks/post-receive
+# Runs automatically on every `git push` to the cPanel repo and copies the
+# live site into public_html (same clean file set as .cpanel.yml — skips
+# exercises.json, build scripts, README, etc.).
+#
+# If the site lives in an addon/subdomain, change WEB to that document root.
+set -e
+
+REPO="$HOME/artemis.git"
+TMP="$HOME/tmp/artemis-deploy"
+WEB="$HOME/public_html"
+
+rm -rf "$TMP"
+mkdir -p "$TMP" "$WEB/data"
+
+# materialise the pushed commit into a temp tree
+GIT_DIR="$REPO" GIT_WORK_TREE="$TMP" git checkout -f main
+
+# publish only what the live site needs
+cp -R "$TMP/index.html" "$TMP/.htaccess" "$TMP/robots.txt" "$TMP/sitemap.xml" "$WEB/"
+cp -R "$TMP/assets" "$TMP/e" "$TMP/images" "$TMP/videos" "$WEB/"
+cp -R "$TMP/data/index.json" "$TMP/data/ex" "$WEB/data/"
+
+rm -rf "$TMP"
+echo "✅ Artemis Strength deployed to $WEB on $(date)"

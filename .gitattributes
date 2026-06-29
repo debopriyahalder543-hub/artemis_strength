@@ -1,0 +1,3 @@
+# Keep shell scripts / server hooks as LF so they run on the Linux host
+deploy/post-receive text eol=lf
+*.sh text eol=lf
