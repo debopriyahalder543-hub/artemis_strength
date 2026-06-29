@@ -10,6 +10,6 @@ deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html
     - /bin/mkdir -p $DEPLOYPATH/data
-    - /bin/cp -R index.html .htaccess robots.txt sitemap.xml $DEPLOYPATH
+    - /bin/cp -R index.html .htaccess robots.txt sitemap.xml google947750ceed73bdc8.html $DEPLOYPATH
     - /bin/cp -R assets e images videos $DEPLOYPATH
     - /bin/cp -R data/index.json data/ex $DEPLOYPATH/data
