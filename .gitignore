@@ -1,5 +1,18 @@
+# python
 __pycache__/
 *.pyc
-.DS_Store
 .venv/
+
+# local tooling / editor
+.claude/
+
+# build & deploy artifacts
 *.zip
+
+# large legacy backup (not used by the live site)
+index-legacy.html
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
