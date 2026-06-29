@@ -1,15 +1,14 @@
 ---
-# cPanel Git deployment. On every push to the cPanel repo, cPanel runs these
-# tasks to copy the live site into public_html.
+# cPanel Git Version Control deployment.
+# In cPanel -> Git Version Control -> Manage -> click "Deploy HEAD Commit",
+# cPanel runs these tasks to copy the live site into public_html.
 #
-# !!! BEFORE FIRST USE: replace __CPANEL_USERNAME__ below with your real cPanel
-#     username (see it in cPanel top-right, or in the path /home/<username>).
-#     If the site lives in an addon/subdomain folder, change public_html to that
-#     folder's document root.
+# $HOME resolves to /home/<your-cpanel-user> automatically, so no editing needed.
+# If the site lives in an addon/subdomain, change public_html to that doc root.
 #
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/__CPANEL_USERNAME__/public_html
+    - export DEPLOYPATH=$HOME/public_html
     - /bin/mkdir -p $DEPLOYPATH/data
     - /bin/cp -R index.html .htaccess robots.txt sitemap.xml $DEPLOYPATH
     - /bin/cp -R assets e images videos $DEPLOYPATH
