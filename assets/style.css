@@ -25,11 +25,9 @@ header{
   backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
 }
 :root[data-theme=light] header{background:rgba(255,255,255,.85)}
-/* auto-hide header on phones when scrolling down */
-@media(max-width:680px){
-  header{transition:transform .28s ease}
-  header.hide{transform:translateY(-100%)}
-}
+/* auto-hide header on scroll (all screens): visible only at the very top */
+header{transition:transform .28s ease}
+header.hide{transform:translateY(-100%)}
 .bar{max-width:1240px;margin:0 auto;padding:12px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .logo{display:flex;align-items:center;gap:10px;white-space:nowrap;color:var(--txt)}
 .logo .mark{flex:none;border-radius:8px}

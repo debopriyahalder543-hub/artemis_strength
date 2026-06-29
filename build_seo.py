@@ -91,7 +91,7 @@ def page_html(e, slug, media):
 <meta name="theme-color" content="#0d1117">
 <link rel="canonical" href="{url}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/style.css?v=5">
+<link rel="stylesheet" href="/assets/style.css?v=6">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Artemis Strength">
 <meta property="og:title" content="{esc(cap(name))} — Artemis Strength">
